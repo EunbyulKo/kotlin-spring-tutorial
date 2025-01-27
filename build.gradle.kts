@@ -6,7 +6,10 @@ plugins {
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
+    kotlin("plugin.allopen") version "1.9.22"
 }
+
+
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
@@ -28,6 +31,12 @@ dependencies {
 
 kotlin {
     jvmToolchain(17)
+}
+
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
 }
 
 tasks.test {
