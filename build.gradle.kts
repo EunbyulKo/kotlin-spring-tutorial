@@ -30,6 +30,10 @@ kotlin {
     jvmToolchain(17)
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
